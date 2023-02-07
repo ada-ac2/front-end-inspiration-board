@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Board from "./components/Board";
 import Wall from "./components/Wall";
+import NewCardForm from "./components/NewCardForm";
 
 //import axious. Do we ant to do a call hre for all the boards? for a data va
 
@@ -58,8 +59,6 @@ function App() {
           ) : (
             ""
           )}
-
-          <p>Here we can put the Board component need to pass cardlist.</p>
         </article>
         <aside>
           <h3>Select a Board</h3>
@@ -68,6 +67,7 @@ function App() {
             newBoard form goes here. need allboards use state, current board use
             state.{" "}
           </p>
+          {currentBoard.board_id ? <NewCardForm></NewCardForm> : ""}
           <p>newcard form will need usestate from selected/current board</p>
         </aside>
       </section>
