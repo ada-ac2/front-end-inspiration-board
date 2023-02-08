@@ -23,6 +23,29 @@ const CardList = ({ cardsData, setCardsData }) => {
       });
   };
 
+  const updateLikes = (card, card_id) => {
+    const updatedCard = { ...card, likes_count: card.likes_count + 1 };
+
+    axios
+      .put(
+        `https://back-inspiration-board-magic.herokuapp.com/cards/${card_id}`,
+        updatedCard
+      )
+      .then(() => {
+        const updatedCardData = cardsData.map((card) => {
+          if (card.card_id === card_id) {
+            return updatedCard;
+          } else {
+            return card;
+          }
+        });
+        setCardsData(updatedCardData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       {cardsData
@@ -35,6 +58,7 @@ const CardList = ({ cardsData, setCardsData }) => {
                 message={thisCard.message}
                 likes_count={thisCard.likes_count}
                 deleteCard={deleteCard}
+                updateLikes={updateLikes}
               ></Card>
             );
           })
