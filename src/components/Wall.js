@@ -4,7 +4,7 @@
 import React from "react";
 import CardList from "./CardList";
 
-const Wall = ({ currentBoard, cardsData }) => {
+const Wall = ({ currentBoard, cardsData, setCardsData }) => {
   const title = currentBoard.board_id ? currentBoard.title : "";
   const owner = currentBoard.board_id ? currentBoard.owner : "";
   return (
@@ -12,7 +12,7 @@ const Wall = ({ currentBoard, cardsData }) => {
       <h2>{title}</h2>
       <p>{owner}</p>
 
-      <CardList board={currentBoard} cardsData={cardsData}></CardList>
+      <CardList cardsData={cardsData} setCardsData={setCardsData}></CardList>
     </div>
   );
 };
