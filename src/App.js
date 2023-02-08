@@ -5,6 +5,7 @@ import axios from "axios";
 import Board from "./components/Board";
 import Wall from "./components/Wall";
 import NewCardForm from "./components/NewCardForm";
+import NewBoardForm from "./components/NewBoardForm";
 
 //import axious. Do we ant to do a call hre for all the boards? for a data va
 
@@ -83,7 +84,8 @@ function App() {
           <ul>{boardList}</ul>
           <p>
             newBoard form goes here. need allboards use state, current board use
-            state.{" "}
+            state.
+            {<NewBoardForm></NewBoardForm>} 
           </p>
           {currentBoard.board_id ? <NewCardForm></NewCardForm> : ""}
         </aside>

@@ -7,8 +7,7 @@ const Board = ({ board, selectBoard }) => {
     <div
       onClick={() => {
         selectBoard(board);
-      }}
-    >
+      }}>
       {board.title}
     </div>
   );
