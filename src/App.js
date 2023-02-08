@@ -49,6 +49,7 @@ function App() {
         console.log(error);
       });
   };
+
   // api call to post a new card
   const postNewCard = (board_id, new_card) => {
     axios
@@ -65,6 +66,7 @@ function App() {
         console.log("Error:", error);
       });
   };
+
   const selectBoard = (board) => {
     //console.log(board);
     setCurrentBoard(board);
