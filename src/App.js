@@ -35,6 +35,7 @@ function App() {
       });
   }, []);
 
+  //api call for getting cards.
   const getBoardCards = (board) => {
     axios
       .get(
@@ -46,6 +47,22 @@ function App() {
       })
       .catch((error) => {
         console.log(error);
+      });
+  };
+  // api call to post a new card
+  const postNewCard = (board_id, new_card) => {
+    axios
+      .post(
+        `https://back-inspiration-board-magic.herokuapp.com/boards/${board_id}/cards`,
+        new_card
+      )
+      .then((response) => {
+        const cards = [...cardsData];
+        cards.push(response.data.card);
+        setCardsData(cards);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
       });
   };
   const selectBoard = (board) => {
@@ -85,7 +102,14 @@ function App() {
             newBoard form goes here. need allboards use state, current board use
             state.{" "}
           </p>
-          {currentBoard.board_id ? <NewCardForm></NewCardForm> : ""}
+          {currentBoard.board_id ? (
+            <NewCardForm
+              board_id={currentBoard.board_id}
+              postNewCard={postNewCard}
+            ></NewCardForm>
+          ) : (
+            ""
+          )}
         </aside>
       </section>
     </main>

@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 
-const NewCardForm = ({ currentBoard }) => {
-  const [feildsData, setFeildsData] = useState({
-    message: "",
-  });
+const NewCardForm = ({ board_id, postNewCard }) => {
+  const [message, setMessage] = useState("");
 
   const onMessageChange = (event) => {
-    setFeildsData({
-      ...feildsData,
-      message: event.target.value,
-    });
+    setMessage(event.target.value);
+  };
+  const likes_count = 0;
+
+  const newCardSubmit = (event) => {
+    event.preventDefault();
+    postNewCard(board_id, { message, likes_count, board_id });
+    setMessage("");
   };
 
   return (
-    <form>
+    <form onSubmit={newCardSubmit}>
       <h4>Create a new card</h4>
       <div>
         <lable htmlFor="message">Message</lable>
         <input
           name="message"
-          value={feildsData.message}
+          value={message}
           onChange={onMessageChange}
           placeholder="Message"
         />
