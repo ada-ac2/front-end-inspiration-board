@@ -79,20 +79,21 @@ main section{
 
 section article{
   width: 70%;
+  padding-left: 3%;
 
 }
 aside{
   width:25%;
   text-align: right;
-  padding-right: 5%;
+  padding-right: 3%;
   height: 100vh;
   background: rgba(63, 84, 89, 0.9);
   color: #FFFFFF;
-
 }
 
 aside section{
   padding-top: 5%;
+  width: 50%;
 }
 
 ul li{

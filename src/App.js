@@ -119,40 +119,42 @@ function App() {
   };
 
   return (
-    <main>
-      <header>
-        <h1>Inspo-Board</h1>
-      </header>
-      <section>
-        <article>
-          {currentBoard.board_id ? (
-            <Wall
-              currentBoard={currentBoard}
-              cardsData={cardsData}
-              setCardsData={setCardsData}
-              deleteCurrentBoard={deleteCurrentBoard}
-            ></Wall>
-          ) : (
-            ""
-          )}
-        </article>
-        <aside>
-          <h3>Select a Board</h3>
-          <ul>{boardList}</ul>
-          <p>
+    <div class="coveroverlay">
+      <main>
+        <header>
+          <h1>Inspo-Board</h1>
+        </header>
+        <section>
+          <article>
+            {currentBoard.board_id ? (
+              <Wall
+                currentBoard={currentBoard}
+                cardsData={cardsData}
+                setCardsData={setCardsData}
+                deleteCurrentBoard={deleteCurrentBoard}
+              ></Wall>
+            ) : (
+              ""
+            )}
+          </article>
+          <aside>
+            <h3>Select a Board</h3>
+            <ul>{boardList}</ul>
+
             {<NewBoardForm addBoardCallback={createNewBoard}></NewBoardForm>}
-          </p>
-          {currentBoard.board_id ? (
-            <NewCardForm
-              board_id={currentBoard.board_id}
-              postNewCard={postNewCard}
-            ></NewCardForm>
-          ) : (
-            ""
-          )}
-        </aside>
-      </section>
-    </main>
+
+            {currentBoard.board_id ? (
+              <NewCardForm
+                board_id={currentBoard.board_id}
+                postNewCard={postNewCard}
+              ></NewCardForm>
+            ) : (
+              ""
+            )}
+          </aside>
+        </section>
+      </main>
+    </div>
   );
 }
 
