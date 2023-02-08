@@ -1,3 +1,13 @@
+/*I need to make the width of main 1--% set the article to float. 
+Set aside font and background
+make button styles
+make forms. replace lables with placeholder 
+set the main and article to be position fixed
+set the bacground for the cardlist. centered. position fixed side scroll bard
+style the scrool bars?
+figure out a method to alternate cards classes possibly nth child. 
+*/
+
 .App {
   text-align: center;
 }
@@ -67,6 +77,7 @@ main section{
   display: flex;
   justify-content: space-around;
 }
+
 section article{
   width: 70%;
 
@@ -74,6 +85,7 @@ section article{
 aside{
   width:30%;
   text-align: right;
+  
 }
 
 aside section{
