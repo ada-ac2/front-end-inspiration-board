@@ -1,5 +1,6 @@
 import Card from "./Card";
 import axios from "axios";
+import "./cardlist.css";
 
 const CardList = ({ cardsData, setCardsData }) => {
   // here make a method for updating a card usting the put method.
@@ -47,7 +48,7 @@ const CardList = ({ cardsData, setCardsData }) => {
   };
 
   return (
-    <div>
+    <div class="pinboard">
       {cardsData
         ? cardsData.map((thisCard) => {
             return (

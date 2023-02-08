@@ -91,12 +91,24 @@ aside{
   color: #FFFFFF;
 }
 .boardselect{
-  height: 30vh;
+  height: 35vh;
+  overflow-y: scroll;
+  margin-bottom: 5px;
 }
 
 aside section{
   padding-top: 3%;
   width: 50%;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+.bottombutton{
+  color: #0D1B26;
+  position: absolute;
+  bottom: 10px;
+  margin-left: 58%;
 }
 
 input {
@@ -117,6 +129,8 @@ button{
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
   color: #FFFFFF;
   background: transparent;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 input::placeholder{

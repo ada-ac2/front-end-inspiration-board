@@ -28,9 +28,7 @@ const NewCardForm = ({ board_id, postNewCard }) => {
             placeholder="Message"
           />
 
-          <section>
-            <button type="submit">Add new message!</button>
-          </section>
+          <button type="submit">Add new message!</button>
         </div>
       )}
     </form>

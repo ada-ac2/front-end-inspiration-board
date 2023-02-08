@@ -16,8 +16,13 @@ const Wall = ({
     <div>
       <h2>{title}</h2>
       <p>{owner}</p>
-      <button onClick={() => deleteCurrentBoard(currentBoard)}>Delete</button>
       <CardList cardsData={cardsData} setCardsData={setCardsData}></CardList>
+      <button
+        class="bottombutton"
+        onClick={() => deleteCurrentBoard(currentBoard)}
+      >
+        Delete
+      </button>
     </div>
   );
 };
