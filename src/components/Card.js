@@ -1,6 +1,5 @@
 //For every element in the list, render <Board>
 import React from "react";
-import PropTypes from "prop-types";
 
 const Card = ({ key, id, message, likes }) => {
   return (
