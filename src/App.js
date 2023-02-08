@@ -58,7 +58,7 @@ function App() {
       )
       .then((response) => {
         const cards = [...cardsData];
-        cards.push(response.data.card);
+        cards.push(response.data);
         setCardsData(cards);
       })
       .catch((error) => {
@@ -90,7 +90,11 @@ function App() {
       <section>
         <article>
           {currentBoard.board_id ? (
-            <Wall currentBoard={currentBoard} cardsData={cardsData}></Wall>
+            <Wall
+              currentBoard={currentBoard}
+              cardsData={cardsData}
+              setCardsData={setCardsData}
+            ></Wall>
           ) : (
             ""
           )}

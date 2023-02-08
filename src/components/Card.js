@@ -2,13 +2,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Card = ({ key, id, message, likes }) => {
+const Card = ({ key, id, message, likes, deleteCard, card }) => {
   return (
     <div>
       <h4>{message}</h4>
       <p>Likes: {likes}</p>
       <h2>+</h2>
-      <button>Delete</button>
+      <button onClick={() => deleteCard(card, id)}>Delete</button>
     </div>
   );
 };
