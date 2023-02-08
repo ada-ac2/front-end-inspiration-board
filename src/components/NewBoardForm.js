@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 const NewBoardForm = (props) => {
     const [formFields, setFormFields] = useState(
@@ -11,28 +11,27 @@ const NewBoardForm = (props) => {
         setToggleBoardForm(!toggleBoardForm)
     }; 
 
-    const onTitleChange = (event) => {
-        setFormFields({
-            ...formFields, 
-            title: event.target.value
-        })
-    }; 
+  const onTitleChange = (event) => {
+    setFormFields({
+      ...formFields,
+      title: event.target.value,
+    });
+  };
 
-    const onOwnerChange = (event) => {
-        setFormFields({
-            ...formFields, 
-            owner: event.target.value
-        })
-    }
+  const onOwnerChange = (event) => {
+    setFormFields({
+      ...formFields,
+      owner: event.target.value,
+    });
+  };
 
-    const onFormSubmit = (event) => {
-        event.preventDefault(); 
-        props.addBoardCallback(
-            {
-                title: formFields.title,
-                owner: formFields.owner 
-            });
-    }; 
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    props.addBoardCallback({
+      title: formFields.title,
+      owner: formFields.owner,
+    });
+  };
 
     return(
         <form onSubmit={onFormSubmit}>
@@ -58,4 +57,4 @@ const NewBoardForm = (props) => {
     ); 
 }; 
 
-export default NewBoardForm; 
+export default NewBoardForm;
