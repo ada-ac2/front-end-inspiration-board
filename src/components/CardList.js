@@ -3,21 +3,8 @@ import PropTypes from "prop-types";
 import Card from "./Card";
 import axios from "axios";
 
-const CardList = ({ board }) => {
-  const [cardsData, setCardsData] = useState([]);
-  useEffect(() => {
-    axios
-      .get(
-        `https://back-inspiration-board-magic.herokuapp.com/boards/${board.board_id}/cards`
-      )
-      .then((response) => {
-        setCardsData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [board]);
-
+const CardList = ({ board, cardsData }) => {
+  console.log(cardsData);
   return (
     <div>
       {cardsData

@@ -16,6 +16,7 @@ function App() {
     owner: "",
     board_id: null,
   });
+  const [cardsData, setCardsData] = useState([]);
   // create new board
   //delete board
   //toggle newboard form
@@ -24,6 +25,7 @@ function App() {
       .get("https://back-inspiration-board-magic.herokuapp.com/boards")
       .then((response) => {
         console.log(response.data);
+
         setAllBoardsData(response.data);
         //setErrorMessage('');
       })
@@ -33,10 +35,24 @@ function App() {
       });
   }, []);
 
+  const getBoardCards = (board) => {
+    axios
+      .get(
+        `https://back-inspiration-board-magic.herokuapp.com/boards/${board.board_id}/cards`
+      )
+      .then((response) => {
+        setCardsData(response.data);
+        console.log(cardsData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const selectBoard = (board) => {
-    console.log(board);
+    //console.log(board);
     setCurrentBoard(board);
-    console.log("you clicked me!");
+    getBoardCards(board);
+    //console.log("you clicked me!");
   };
 
   const boardList = allBoardsData.map((board) => {
@@ -47,6 +63,8 @@ function App() {
     );
   });
 
+  // use if the board is selected
+
   return (
     <main>
       <header>
@@ -55,7 +73,7 @@ function App() {
       <section>
         <article>
           {currentBoard.board_id ? (
-            <Wall currentBoard={currentBoard}></Wall>
+            <Wall currentBoard={currentBoard} cardsData={cardsData}></Wall>
           ) : (
             ""
           )}
@@ -68,7 +86,6 @@ function App() {
             state.{" "}
           </p>
           {currentBoard.board_id ? <NewCardForm></NewCardForm> : ""}
-          <p>newcard form will need usestate from selected/current board</p>
         </aside>
       </section>
     </main>

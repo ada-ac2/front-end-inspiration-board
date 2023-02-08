@@ -5,7 +5,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import CardList from "./CardList";
 
-const Wall = ({ currentBoard }) => {
+const Wall = ({ currentBoard, cardsData }) => {
   const title = currentBoard.board_id ? currentBoard.title : "";
   const owner = currentBoard.board_id ? currentBoard.owner : "";
   return (
@@ -13,7 +13,7 @@ const Wall = ({ currentBoard }) => {
       <h2>{title}</h2>
       <p>{owner}</p>
 
-      <CardList board={currentBoard}></CardList>
+      <CardList board={currentBoard} cardsData={cardsData}></CardList>
     </div>
   );
 };
