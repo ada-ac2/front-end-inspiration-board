@@ -75,6 +75,10 @@ aside{
   width:30%;
 }
 
+aside section{
+  padding-top: 5%;
+}
+
 ul li{
   list-style-type: none;
   text-align: right;
