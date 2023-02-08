@@ -70,12 +70,11 @@ h1{
   text-shadow: rgba(243,223,216,1) 0px 0px 10px;
 }
 main section{
-  padding-top: 140px;
-  width: 90%;
-  margin:auto;
+  padding-top: 130px;
+  width: 100vw;
   font-family: Epilogue;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 section article{
@@ -83,9 +82,13 @@ section article{
 
 }
 aside{
-  width:30%;
+  width:25%;
   text-align: right;
-  
+  padding-right: 5%;
+  height: 100vh;
+  background: rgba(63, 84, 89, 0.9);
+  color: #FFFFFF;
+
 }
 
 aside section{
