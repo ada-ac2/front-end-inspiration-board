@@ -105,8 +105,6 @@ function App() {
           <h3>Select a Board</h3>
           <ul>{boardList}</ul>
           <p>
-            newBoard form goes here. need allboards use state, current board use
-            state.
             {<NewBoardForm addBoardCallback = {createNewBoard}></NewBoardForm>} 
           </p>
           {currentBoard.board_id ? (

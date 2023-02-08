@@ -5,6 +5,11 @@ const NewBoardForm = (props) => {
         {title: '',
         owner: ''}
     ); 
+    const [toggleBoardForm, setToggleBoardForm] = useState(false); 
+    
+    const onToggleBoardForm = () => {
+        setToggleBoardForm(!toggleBoardForm)
+    }; 
 
     const onTitleChange = (event) => {
         setFormFields({
@@ -31,22 +36,24 @@ const NewBoardForm = (props) => {
 
     return(
         <form onSubmit={onFormSubmit}>
-            <h4>Create a new board</h4> 
-            <div>
-                <label htmlFor="title">Title: </label>
-                <input name = "title" 
-                        value = {formFields.title}
-                        onChange = {onTitleChange}/>
-            </div>
-            <div>
-                <label htmlFor="owner">Owner: </label>
-                <input name = "owner" 
-                        value = {formFields.owner}
-                        onChange = {onOwnerChange}/>
-            </div>
-            <input type = "submit"
-                value = "Add board"
-            />
+            <button onClick={onToggleBoardForm}>Create a new Board</button>
+            {toggleBoardForm && (
+                <div>
+                    <section> 
+                    <label htmlFor="title">Title: </label>
+                    <input name = "title" 
+                            value = {formFields.title}
+                            onChange = {onTitleChange}/>
+                    </section>
+                <section> 
+                    <label htmlFor="owner">Owner: </label>
+                    <input name = "owner" 
+                            value = {formFields.owner}
+                            onChange = {onOwnerChange}/>
+                </section> 
+                    <input type = "submit" value = "Add board"/>
+                </div>
+            )}
         </form>
     ); 
 }; 
