@@ -14,8 +14,10 @@ const Wall = ({
   const owner = currentBoard.board_id ? currentBoard.owner : "";
   return (
     <div>
-      <h2>{title}</h2>
-      <p>{owner}</p>
+      <div class="inline">
+        <h2>{title} - </h2>
+        <p> {owner}</p>
+      </div>
       <CardList cardsData={cardsData} setCardsData={setCardsData}></CardList>
       <button
         class="bottombutton"

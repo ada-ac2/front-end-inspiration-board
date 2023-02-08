@@ -95,6 +95,74 @@ aside{
   overflow-y: scroll;
   margin-bottom: 5px;
 }
+.cardBar>* {
+
+    margin: 10px;
+}
+.cardBar{
+  display: flex;
+  position:absolute;
+  bottom: 0px;
+}
+
+.cardBar button{
+  background-color: rgba(13, 27, 38, 0.7);
+  padding: 5px;
+  height:fit-content;
+  margin-left: 30px;
+
+  
+}
+
+.cardOne, .cardTwo, .cardThree, .cardFour{
+  width: 200px;
+  height: 200px;
+  overflow-y: scroll;
+  font-family: 'Cutive';
+  font-size: smaller;
+  padding: 10px;
+  row-gap: 50px;
+  position: relative;
+  margin: 10px 0;
+}
+.message{
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.cardOne{
+  background:  url('./images/paper_one.jpg');
+  background-size:cover;
+}
+.inline{
+  display: flex;
+  align-items: baseline;
+}
+
+.inline p {
+  margin-left: 5px;
+}
+
+
+.cardTwo{
+  background:  url('./images/paper_two.jpg');
+  color:#FFFFFF;
+  background-size:cover;
+}
+
+.cardThree{
+  background:  url('./images/oneLastPaper.jpg');
+  background-size:cover;
+}
+
+.cardFour{
+  background:  url('./images/dark_paper.jpg');
+  color:#FFFFFF;
+  background-size:cover;
+}
+
+
 
 aside section{
   padding-top: 3%;

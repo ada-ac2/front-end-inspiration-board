@@ -8,6 +8,17 @@ const CardList = ({ cardsData, setCardsData }) => {
   // instead of filter you are going to want to set new data to
   // cardsData.Map((aCard)=>{return aCard.card_id ==card.card_id? {...card, likes_count: card.likes_count+1}:aCard})
   // set the card data then do your catch error! make sure to pass this along to the card!
+
+  const setClass = (card_id) => {
+    if (card_id % 4 == 0) {
+      return "cardOne";
+    } else if (card_id % 3 == 0) {
+      return "cardTwo";
+    } else if (card_id % 2 == 0) {
+      return "cardThree";
+    }
+    return "cardFour";
+  };
   const deleteCard = (card, card_id) => {
     axios
       .delete(
@@ -53,6 +64,7 @@ const CardList = ({ cardsData, setCardsData }) => {
         ? cardsData.map((thisCard) => {
             return (
               <Card
+                setClass={setClass}
                 card={thisCard}
                 key={thisCard.card_id}
                 id={thisCard.card_id}
