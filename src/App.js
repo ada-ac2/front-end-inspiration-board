@@ -138,8 +138,10 @@ function App() {
             )}
           </article>
           <aside>
-            <h3>Select a Board</h3>
-            <ul>{boardList}</ul>
+            <div class="boardselect">
+              <h3>Select a Board</h3>
+              <ul>{boardList}</ul>
+            </div>
 
             {<NewBoardForm addBoardCallback={createNewBoard}></NewBoardForm>}
 

@@ -90,10 +90,39 @@ aside{
   background: rgba(63, 84, 89, 0.9);
   color: #FFFFFF;
 }
+.boardselect{
+  height: 30vh;
+}
 
 aside section{
-  padding-top: 5%;
+  padding-top: 3%;
   width: 50%;
+}
+
+input {
+  width: 75%;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #0D1B26;
+  color: white;
+  text-align: left;
+}
+
+button{
+  font-family: Epilogue;
+  padding: 10px;
+  border: 1.5px solid #0D1B26;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+  color: #FFFFFF;
+  background: transparent;
+}
+
+input::placeholder{
+
+  color:white;
+  font-family: Epilogue;
 }
 
 ul li{
