@@ -1,30 +1,40 @@
 import React, { useState } from "react";
 
-const NewCardForm = ({ currentBoard }) => {
-  const [feildsData, setFeildsData] = useState({
-    message: "",
-  });
-
+const NewCardForm = ({ board_id, postNewCard }) => {
+  const [message, setMessage] = useState("");
+  const [toggleCardForm, setToggleCardForm] = useState(false);
   const onMessageChange = (event) => {
-    setFeildsData({
-      ...feildsData,
-      message: event.target.value,
-    });
+    setMessage(event.target.value);
+  };
+  const likes_count = 0;
+  const handleToggleClick = () => {
+    setToggleCardForm(!toggleCardForm);
+  };
+  const newCardSubmit = (event) => {
+    event.preventDefault();
+    postNewCard(board_id, { message, likes_count, board_id });
+    setMessage("");
   };
 
   return (
-    <form>
-      <h4>Create a new card</h4>
-      <div>
-        <lable htmlFor="message">Message</lable>
-        <input
-          name="message"
-          value={feildsData.message}
-          onChange={onMessageChange}
-          placeholder="Message"
-        />
-      </div>
-      <button type="submit">Add new message!</button>
+    <form onSubmit={newCardSubmit}>
+      <button onClick={handleToggleClick}>Create a new card</button>
+      {toggleCardForm && (
+        <div>
+          <section>
+            <lable htmlFor="message">Message</lable>
+            <input
+              name="message"
+              value={message}
+              onChange={onMessageChange}
+              placeholder="Message"
+            />
+          </section>
+          <section>
+            <button type="submit">Add new message!</button>
+          </section>
+        </div>
+      )}
     </form>
   );
 };

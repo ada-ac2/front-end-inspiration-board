@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -7,10 +6,7 @@ import Wall from "./components/Wall";
 import NewCardForm from "./components/NewCardForm";
 import NewBoardForm from "./components/NewBoardForm";
 
-//import axious. Do we ant to do a call hre for all the boards? for a data va
-
 function App() {
-  //usestate here to get all data via axios call
   const [allBoardsData, setAllBoardsData] = useState([]);
   const [currentBoard, setCurrentBoard] = useState({
     title: "",
@@ -18,24 +14,20 @@ function App() {
     board_id: null,
   });
   const [cardsData, setCardsData] = useState([]);
-  // create new board
-  //delete board
-  //toggle newboard form
+
   useEffect(() => {
     axios
       .get("https://back-inspiration-board-magic.herokuapp.com/boards")
       .then((response) => {
-        console.log(response.data);
-
         setAllBoardsData(response.data);
-        //setErrorMessage('');
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error.response.data.message);
-        //setErrorMessage(<section>{error.response.data.message}</section>);
       });
   }, []);
 
+  //api call for getting cards.
   const getBoardCards = (board) => {
     axios
       .get(
@@ -49,11 +41,27 @@ function App() {
         console.log(error);
       });
   };
+
+  // api call to post a new card
+  const postNewCard = (board_id, new_card) => {
+    axios
+      .post(
+        `https://back-inspiration-board-magic.herokuapp.com/boards/${board_id}/cards`,
+        new_card
+      )
+      .then((response) => {
+        const cards = [...cardsData];
+        cards.push(response.data);
+        setCardsData(cards);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+      });
+  };
+
   const selectBoard = (board) => {
-    //console.log(board);
     setCurrentBoard(board);
     getBoardCards(board);
-    //console.log("you clicked me!");
   };
 
   const boardList = allBoardsData.map((board) => {
@@ -64,8 +72,6 @@ function App() {
     );
   });
 
-  // use if the board is selected
-
   return (
     <main>
       <header>
@@ -74,7 +80,11 @@ function App() {
       <section>
         <article>
           {currentBoard.board_id ? (
-            <Wall currentBoard={currentBoard} cardsData={cardsData}></Wall>
+            <Wall
+              currentBoard={currentBoard}
+              cardsData={cardsData}
+              setCardsData={setCardsData}
+            ></Wall>
           ) : (
             ""
           )}
@@ -87,7 +97,14 @@ function App() {
             state.
             {<NewBoardForm></NewBoardForm>} 
           </p>
-          {currentBoard.board_id ? <NewCardForm></NewCardForm> : ""}
+          {currentBoard.board_id ? (
+            <NewCardForm
+              board_id={currentBoard.board_id}
+              postNewCard={postNewCard}
+            ></NewCardForm>
+          ) : (
+            ""
+          )}
         </aside>
       </section>
     </main>
