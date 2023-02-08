@@ -10,11 +10,11 @@ const CardList = ({ cardsData, setCardsData }) => {
   // set the card data then do your catch error! make sure to pass this along to the card!
 
   const setClass = (card_id) => {
-    if (card_id % 4 == 0) {
+    if (card_id % 4 === 0) {
       return "cardOne";
-    } else if (card_id % 3 == 0) {
+    } else if (card_id % 3 === 0) {
       return "cardTwo";
-    } else if (card_id % 2 == 0) {
+    } else if (card_id % 2 === 0) {
       return "cardThree";
     }
     return "cardFour";

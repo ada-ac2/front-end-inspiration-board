@@ -6,6 +6,7 @@ import Wall from "./components/Wall";
 import NewCardForm from "./components/NewCardForm";
 import NewBoardForm from "./components/NewBoardForm";
 import WebFont from "webfontloader";
+import OrderBy from "./components/OrderBy";
 
 function App() {
   const [allBoardsData, setAllBoardsData] = useState([]);
@@ -118,6 +119,27 @@ function App() {
       });
   };
 
+  const sortByLikes = () => {
+    const cards = [...cardsData];
+    cards.sort((a, b) => b.likes_count - a.likes_count);
+    setCardsData(cards);
+    console.log(cards);
+  };
+
+  const sortByAlpha = () => {
+    const cards = [...cardsData];
+    cards.sort((a, b) => a.message.localeCompare(b.message));
+    setCardsData(cards);
+    console.log(cards);
+  };
+
+  const sortById = () => {
+    const cards = [...cardsData];
+    cards.sort((a, b) => a.card_id - b.card_id);
+    setCardsData(cards);
+    console.log(cards);
+  };
+
   return (
     <div class="coveroverlay">
       <main>
@@ -150,6 +172,16 @@ function App() {
                 board_id={currentBoard.board_id}
                 postNewCard={postNewCard}
               ></NewCardForm>
+            ) : (
+              ""
+            )}
+
+            {cardsData.length > 0 ? (
+              <OrderBy
+                sortByLikes={sortByLikes}
+                sortByAlpha={sortByAlpha}
+                sortById={sortById}
+              ></OrderBy>
             ) : (
               ""
             )}
