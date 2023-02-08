@@ -106,10 +106,15 @@ function App() {
       .then((response) => {
         console.log(response.status);
         console.log(response.data.message);
-        //setCurrentBoard(null);
+        setCurrentBoard({
+          title: "",
+          owner: "",
+          board_id: null,
+        });
       })
       .catch((error) => {
         console.log(error);
+        setCurrentBoard(board);
       });
   };
 
