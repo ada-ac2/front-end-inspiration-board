@@ -2,12 +2,14 @@ import React, { useState } from "react";
 
 const NewCardForm = ({ board_id, postNewCard }) => {
   const [message, setMessage] = useState("");
-
+  const [toggleCardForm, setToggleCardForm] = useState(false);
   const onMessageChange = (event) => {
     setMessage(event.target.value);
   };
   const likes_count = 0;
-
+  const handleToggleClick = () => {
+    setToggleCardForm(!toggleCardForm);
+  };
   const newCardSubmit = (event) => {
     event.preventDefault();
     postNewCard(board_id, { message, likes_count, board_id });
@@ -16,17 +18,23 @@ const NewCardForm = ({ board_id, postNewCard }) => {
 
   return (
     <form onSubmit={newCardSubmit}>
-      <h4>Create a new card</h4>
-      <div>
-        <lable htmlFor="message">Message</lable>
-        <input
-          name="message"
-          value={message}
-          onChange={onMessageChange}
-          placeholder="Message"
-        />
-      </div>
-      <button type="submit">Add new message!</button>
+      <button onClick={handleToggleClick}>Create a new card</button>
+      {toggleCardForm && (
+        <div>
+          <section>
+            <lable htmlFor="message">Message</lable>
+            <input
+              name="message"
+              value={message}
+              onChange={onMessageChange}
+              placeholder="Message"
+            />
+          </section>
+          <section>
+            <button type="submit">Add new message!</button>
+          </section>
+        </div>
+      )}
     </form>
   );
 };

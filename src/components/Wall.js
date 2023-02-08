@@ -2,7 +2,6 @@
 // Iterate through the board list
 //For every element in the list, render <Board>
 import React from "react";
-import PropTypes from "prop-types";
 import CardList from "./CardList";
 
 const Wall = ({ currentBoard, cardsData, setCardsData }) => {
