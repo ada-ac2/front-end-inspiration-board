@@ -27,6 +27,60 @@
 .App-link {
   color: #61dafb;
 }
+body{
+  left: 0px;
+  top: 0px;
+  position:fixed;
+  background:  url('./images/background.jpg');
+  background-size: cover;
+}
+
+.coveroverlay{
+  background: rgba(243, 223, 216, 0.6);
+  width: 100vw;
+  height: 100vh;
+}
+
+header{
+  font-family: 'sacramento';
+  font-size: x-large;
+  background:  url('./images/header.jpg')  rgba(13, 27, 38, 0.9);
+  background-size: cover;
+  background-blend-mode: multiply;
+  color: #F3DFD8;
+  left: 0px;
+  top: 0px;
+  position:fixed;
+  
+  width: 100%;
+}
+
+h1{
+  padding-left: 8%;
+  text-shadow: rgba(243,223,216,1) 0px 0px 10px;
+}
+main section{
+  padding-top: 140px;
+  width: 90%;
+  margin:auto;
+  font-family: Epilogue;
+  display: flex;
+  justify-content: space-around;
+}
+section article{
+  width: 70%;
+
+}
+aside{
+  width:30%;
+}
+
+ul li{
+  list-style-type: none;
+  text-align: right;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
 
 @keyframes App-logo-spin {
   from {
