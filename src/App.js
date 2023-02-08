@@ -68,6 +68,22 @@ function App() {
       });
   };
 
+  const createNewBoard = (new_board) => {
+    axios
+      .post(
+        `https://back-inspiration-board-magic.herokuapp.com/boards`,
+        new_board
+      )
+      .then((response) => {
+        const boards = [...allBoardsData];
+        boards.push(response.data);
+        setAllBoardsData(boards);
+      })
+      .catch((error) => {
+        console.log("Error", error);
+      });
+  };
+
   const selectBoard = (board) => {
     setCurrentBoard(board);
     getBoardCards(board);
@@ -102,11 +118,8 @@ function App() {
           <aside>
             <h3>Select a Board</h3>
             <ul>{boardList}</ul>
-            <p>
-              newBoard form goes here. need allboards use state, current board
-              use state.
-              {<NewBoardForm></NewBoardForm>}
-            </p>
+            {<NewBoardForm addBoardCallback={createNewBoard}></NewBoardForm>}
+
             {currentBoard.board_id ? (
               <NewCardForm
                 board_id={currentBoard.board_id}
