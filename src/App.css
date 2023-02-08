@@ -1,3 +1,13 @@
+/*I need to make the width of main 1--% set the article to float. 
+Set aside font and background
+make button styles
+make forms. replace lables with placeholder 
+set the main and article to be position fixed
+set the bacground for the cardlist. centered. position fixed side scroll bard
+style the scrool bars?
+figure out a method to alternate cards classes possibly nth child. 
+*/
+
 .App {
   text-align: center;
 }
@@ -26,6 +36,67 @@
 
 .App-link {
   color: #61dafb;
+}
+body{
+  left: 0px;
+  top: 0px;
+  position:fixed;
+  background:  url('./images/background.jpg');
+  background-size: cover;
+}
+
+.coveroverlay{
+  background: rgba(243, 223, 216, 0.6);
+  width: 100vw;
+  height: 100vh;
+}
+
+header{
+  font-family: 'sacramento';
+  font-size: x-large;
+  background:  url('./images/header.jpg')  rgba(13, 27, 38, 0.9);
+  background-size: cover;
+  background-blend-mode: multiply;
+  color: #F3DFD8;
+  left: 0px;
+  top: 0px;
+  position:fixed;
+  
+  width: 100%;
+}
+
+h1{
+  padding-left: 8%;
+  text-shadow: rgba(243,223,216,1) 0px 0px 10px;
+}
+main section{
+  padding-top: 140px;
+  width: 90%;
+  margin:auto;
+  font-family: Epilogue;
+  display: flex;
+  justify-content: space-around;
+}
+
+section article{
+  width: 70%;
+
+}
+aside{
+  width:30%;
+  text-align: right;
+  
+}
+
+aside section{
+  padding-top: 5%;
+}
+
+ul li{
+  list-style-type: none;
+  text-align: right;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 @keyframes App-logo-spin {

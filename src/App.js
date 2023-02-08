@@ -5,6 +5,7 @@ import Board from "./components/Board";
 import Wall from "./components/Wall";
 import NewCardForm from "./components/NewCardForm";
 import NewBoardForm from "./components/NewBoardForm";
+import WebFont from "webfontloader";
 
 function App() {
   const [allBoardsData, setAllBoardsData] = useState([]);
@@ -14,6 +15,14 @@ function App() {
     board_id: null,
   });
   const [cardsData, setCardsData] = useState([]);
+
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ["Sacramento", "Epilogue", "Cutive"],
+      },
+    });
+  }, []);
 
   useEffect(() => {
     axios
@@ -89,39 +98,40 @@ function App() {
   });
 
   return (
-    <main>
-      <header>
-        <h1>Inspo-Board</h1>
-      </header>
-      <section>
-        <article>
-          {currentBoard.board_id ? (
-            <Wall
-              currentBoard={currentBoard}
-              cardsData={cardsData}
-              setCardsData={setCardsData}
-            ></Wall>
-          ) : (
-            ""
-          )}
-        </article>
-        <aside>
-          <h3>Select a Board</h3>
-          <ul>{boardList}</ul>
-          <p>
-            {<NewBoardForm addBoardCallback = {createNewBoard}></NewBoardForm>} 
-          </p>
-          {currentBoard.board_id ? (
-            <NewCardForm
-              board_id={currentBoard.board_id}
-              postNewCard={postNewCard}
-            ></NewCardForm>
-          ) : (
-            ""
-          )}
-        </aside>
-      </section>
-    </main>
+    <div class="coveroverlay">
+      <main>
+        <header>
+          <h1>Inspo-Board</h1>
+        </header>
+        <section>
+          <article>
+            {currentBoard.board_id ? (
+              <Wall
+                currentBoard={currentBoard}
+                cardsData={cardsData}
+                setCardsData={setCardsData}
+              ></Wall>
+            ) : (
+              ""
+            )}
+          </article>
+          <aside>
+            <h3>Select a Board</h3>
+            <ul>{boardList}</ul>
+            {<NewBoardForm addBoardCallback={createNewBoard}></NewBoardForm>}
+
+            {currentBoard.board_id ? (
+              <NewCardForm
+                board_id={currentBoard.board_id}
+                postNewCard={postNewCard}
+              ></NewCardForm>
+            ) : (
+              ""
+            )}
+          </aside>
+        </section>
+      </main>
+    </div>
   );
 }
 
