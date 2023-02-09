@@ -35,7 +35,7 @@ function App() {
       .catch((error) => {
         console.log(error.response.data.message);
       });
-  }, []);
+  }, [currentBoard]);
 
   //api call for getting cards.
   const getBoardCards = (board) => {
