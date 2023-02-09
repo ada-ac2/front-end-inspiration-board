@@ -7,7 +7,8 @@ const NewCardForm = ({ board_id, postNewCard }) => {
     setMessage(event.target.value);
   };
   const likes_count = 0;
-  const handleToggleClick = () => {
+  const handleToggleClick = (event) => {
+    event.preventDefault();
     setToggleCardForm(!toggleCardForm);
   };
   const newCardSubmit = (event) => {

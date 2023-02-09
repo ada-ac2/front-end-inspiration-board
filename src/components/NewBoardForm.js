@@ -4,7 +4,8 @@ const NewBoardForm = (props) => {
   const [formFields, setFormFields] = useState({ title: "", owner: "" });
   const [toggleBoardForm, setToggleBoardForm] = useState(false);
 
-  const onToggleBoardForm = () => {
+  const onToggleBoardForm = (event) => {
+    event.preventDefault();
     setToggleBoardForm(!toggleBoardForm);
   };
 
