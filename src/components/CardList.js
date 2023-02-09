@@ -39,10 +39,7 @@ const CardList = ({ cardsData, setCardsData }) => {
     const updatedCard = { ...card, likes_count: card.likes_count + 1 };
 
     axios
-      .put(
-        `https://back-inspiration-board-magic.herokuapp.com/cards/${card_id}`,
-        updatedCard
-      )
+      .put(`${process.env.REACT_APP_BACKEND_URL}/cards/${card_id}`, updatedCard)
       .then(() => {
         const updatedCardData = cardsData.map((card) => {
           if (card.card_id === card_id) {

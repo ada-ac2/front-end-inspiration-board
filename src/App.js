@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://back-inspiration-board-magic.herokuapp.com/boards")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/boards`)
       .then((response) => {
         setAllBoardsData(response.data);
         console.log(response.data);
@@ -41,7 +41,7 @@ function App() {
   const getBoardCards = (board) => {
     axios
       .get(
-        `https://back-inspiration-board-magic.herokuapp.com/boards/${board.board_id}/cards`
+        `${process.env.REACT_APP_BACKEND_URL}/boards/${board.board_id}/cards`
       )
       .then((response) => {
         setCardsData(response.data);
@@ -56,7 +56,7 @@ function App() {
   const postNewCard = (board_id, new_card) => {
     axios
       .post(
-        `https://back-inspiration-board-magic.herokuapp.com/boards/${board_id}/cards`,
+        `${process.env.REACT_APP_BACKEND_URL}/boards/${board_id}/cards`,
         new_card
       )
       .then((response) => {
@@ -71,10 +71,7 @@ function App() {
 
   const createNewBoard = (new_board) => {
     axios
-      .post(
-        `https://back-inspiration-board-magic.herokuapp.com/boards`,
-        new_board
-      )
+      .post(`${process.env.REACT_APP_BACKEND_URL}/boards`, new_board)
       .then((response) => {
         const boards = [...allBoardsData];
         boards.push(response.data);
@@ -101,9 +98,7 @@ function App() {
   const deleteCurrentBoard = (board) => {
     console.log(board.board_id);
     axios
-      .delete(
-        `https://back-inspiration-board-magic.herokuapp.com/boards/${board.board_id}`
-      )
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/boards/${board.board_id}`)
       .then((response) => {
         console.log(response.status);
         console.log(response.data.message);
