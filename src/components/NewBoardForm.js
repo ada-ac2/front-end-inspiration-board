@@ -29,6 +29,7 @@ const onFormSubmit = (event) => {
     title: formFields.title,
     owner: formFields.owner,
     });
+    setFormFields({title: "", owner: ""}); 
 };
 
   return (
