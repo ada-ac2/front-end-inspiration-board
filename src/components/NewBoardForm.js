@@ -11,27 +11,27 @@ const NewBoardForm = (props) => {
         setToggleBoardForm(!toggleBoardForm)
     }; 
 
-  const onTitleChange = (event) => {
+const onTitleChange = (event) => {
     setFormFields({
-      ...formFields,
-      title: event.target.value,
+    ...formFields,
+    title: event.target.value,
     });
-  };
+};
 
-  const onOwnerChange = (event) => {
+const onOwnerChange = (event) => {
     setFormFields({
-      ...formFields,
-      owner: event.target.value,
+    ...formFields,
+    owner: event.target.value,
     });
-  };
+};
 
-  const onFormSubmit = (event) => {
+const onFormSubmit = (event) => {
     event.preventDefault();
     props.addBoardCallback({
-      title: formFields.title,
-      owner: formFields.owner,
+    title: formFields.title,
+    owner: formFields.owner,
     });
-  };
+};
 
     return(
         <form onSubmit={onFormSubmit}>
