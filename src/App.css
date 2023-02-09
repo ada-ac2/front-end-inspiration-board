@@ -79,20 +79,132 @@ main section{
 
 section article{
   width: 70%;
+  padding-left: 3%;
 
 }
 aside{
   width:25%;
   text-align: right;
-  padding-right: 5%;
+  padding-right: 3%;
   height: 100vh;
   background: rgba(63, 84, 89, 0.9);
   color: #FFFFFF;
+}
+.boardselect{
+  height: 35vh;
+  overflow-y: scroll;
+  margin-bottom: 5px;
+}
+.cardBar>* {
 
+    margin: 10px;
+}
+.cardBar{
+  display: flex;
+  position:absolute;
+  bottom: 0px;
 }
 
+.cardBar button{
+  background-color: rgba(13, 27, 38, 0.7);
+  padding: 5px;
+  height:fit-content;
+  margin-left: 30px;
+
+  
+}
+
+.cardOne, .cardTwo, .cardThree, .cardFour{
+  width: 200px;
+  height: 200px;
+  overflow-y: scroll;
+  font-family: 'Cutive';
+  font-size: smaller;
+  padding: 10px;
+  row-gap: 50px;
+  position: relative;
+  margin: 10px 0;
+}
+.message{
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.cardOne{
+  background:  url('./images/paper_one.jpg');
+  background-size:cover;
+}
+.inline{
+  display: flex;
+  align-items: baseline;
+}
+
+.inline p {
+  margin-left: 5px;
+}
+
+
+.cardTwo{
+  background:  url('./images/paper_two.jpg');
+  color:#FFFFFF;
+  background-size:cover;
+}
+
+.cardThree{
+  background:  url('./images/oneLastPaper.jpg');
+  background-size:cover;
+}
+
+.cardFour{
+  background:  url('./images/dark_paper.jpg');
+  color:#FFFFFF;
+  background-size:cover;
+}
+
+
+
 aside section{
-  padding-top: 5%;
+  padding-top: 3%;
+  width: 50%;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+.bottombutton{
+  color: #0D1B26;
+  position: absolute;
+  bottom: 10px;
+  margin-left: 58%;
+}
+
+input {
+  width: 75%;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #0D1B26;
+  color: white;
+  text-align: left;
+}
+
+button{
+  font-family: Epilogue;
+  padding: 10px;
+  border: 1.5px solid #0D1B26;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+  color: #FFFFFF;
+  background: transparent;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+input::placeholder{
+
+  color:white;
+  font-family: Epilogue;
 }
 
 ul li{

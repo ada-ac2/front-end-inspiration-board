@@ -21,18 +21,14 @@ const NewCardForm = ({ board_id, postNewCard }) => {
       <button onClick={handleToggleClick}>Create a new card</button>
       {toggleCardForm && (
         <div>
-          <section>
-            <lable htmlFor="message">Message</lable>
-            <input
-              name="message"
-              value={message}
-              onChange={onMessageChange}
-              placeholder="Message"
-            />
-          </section>
-          <section>
-            <button type="submit">Add new message!</button>
-          </section>
+          <input
+            name="message"
+            value={message}
+            onChange={onMessageChange}
+            placeholder="Message"
+          />
+
+          <button type="submit">Add new message!</button>
         </div>
       )}
     </form>

@@ -6,6 +6,7 @@ import Wall from "./components/Wall";
 import NewCardForm from "./components/NewCardForm";
 import NewBoardForm from "./components/NewBoardForm";
 import WebFont from "webfontloader";
+import OrderBy from "./components/OrderBy";
 
 function App() {
   const [allBoardsData, setAllBoardsData] = useState([]);
@@ -34,7 +35,7 @@ function App() {
       .catch((error) => {
         console.log(error.response.data.message);
       });
-  }, []);
+  }, [currentBoard]);
 
   //api call for getting cards.
   const getBoardCards = (board) => {
@@ -118,41 +119,76 @@ function App() {
       });
   };
 
+  const sortByLikes = () => {
+    const cards = [...cardsData];
+    cards.sort((a, b) => b.likes_count - a.likes_count);
+    setCardsData(cards);
+    console.log(cards);
+  };
+
+  const sortByAlpha = () => {
+    const cards = [...cardsData];
+    cards.sort((a, b) => a.message.localeCompare(b.message));
+    setCardsData(cards);
+    console.log(cards);
+  };
+
+  const sortById = () => {
+    const cards = [...cardsData];
+    cards.sort((a, b) => a.card_id - b.card_id);
+    setCardsData(cards);
+    console.log(cards);
+  };
+
   return (
-    <main>
-      <header>
-        <h1>Inspo-Board</h1>
-      </header>
-      <section>
-        <article>
-          {currentBoard.board_id ? (
-            <Wall
-              currentBoard={currentBoard}
-              cardsData={cardsData}
-              setCardsData={setCardsData}
-              deleteCurrentBoard={deleteCurrentBoard}
-            ></Wall>
-          ) : (
-            ""
-          )}
-        </article>
-        <aside>
-          <h3>Select a Board</h3>
-          <ul>{boardList}</ul>
-          <p>
+    <div class="coveroverlay">
+      <main>
+        <header>
+          <h1>Inspo-Board</h1>
+        </header>
+        <section>
+          <article>
+            {currentBoard.board_id ? (
+              <Wall
+                currentBoard={currentBoard}
+                cardsData={cardsData}
+                setCardsData={setCardsData}
+                deleteCurrentBoard={deleteCurrentBoard}
+              ></Wall>
+            ) : (
+              ""
+            )}
+          </article>
+          <aside>
+            <div class="boardselect">
+              <h3>Select a Board</h3>
+              <ul>{boardList}</ul>
+            </div>
+
             {<NewBoardForm addBoardCallback={createNewBoard}></NewBoardForm>}
-          </p>
-          {currentBoard.board_id ? (
-            <NewCardForm
-              board_id={currentBoard.board_id}
-              postNewCard={postNewCard}
-            ></NewCardForm>
-          ) : (
-            ""
-          )}
-        </aside>
-      </section>
-    </main>
+
+            {currentBoard.board_id ? (
+              <NewCardForm
+                board_id={currentBoard.board_id}
+                postNewCard={postNewCard}
+              ></NewCardForm>
+            ) : (
+              ""
+            )}
+
+            {cardsData.length > 0 ? (
+              <OrderBy
+                sortByLikes={sortByLikes}
+                sortByAlpha={sortByAlpha}
+                sortById={sortById}
+              ></OrderBy>
+            ) : (
+              ""
+            )}
+          </aside>
+        </section>
+      </main>
+    </div>
   );
 }
 

@@ -14,10 +14,17 @@ const Wall = ({
   const owner = currentBoard.board_id ? currentBoard.owner : "";
   return (
     <div>
-      <h2>{title}</h2>
-      <p>{owner}</p>
-      <button onClick={() => deleteCurrentBoard(currentBoard)}>Delete</button>
+      <div class="inline">
+        <h2>{title} - </h2>
+        <p> {owner}</p>
+      </div>
       <CardList cardsData={cardsData} setCardsData={setCardsData}></CardList>
+      <button
+        class="bottombutton"
+        onClick={() => deleteCurrentBoard(currentBoard)}
+      >
+        Delete
+      </button>
     </div>
   );
 };
