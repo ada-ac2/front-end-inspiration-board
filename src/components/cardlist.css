@@ -1,0 +1,13 @@
+.pinboard{
+    width: 63%;
+    height: 60vh;
+    margin: auto;
+    position:fixed;
+    background:  url('../images/board.jpg');
+    background-size: cover;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 5px;
+    justify-content: space-around;
+}
