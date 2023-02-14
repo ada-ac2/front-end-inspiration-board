@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Roboto&display=swap');
+
+
+#cards-list-label{
+    font-size: 25px;
+    color:rgba(24, 18, 18, 0.751);
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    padding-top:0;
+    padding-bottom: 20px;
+    height:min-content;
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    margin:10px;
+    box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
+}
+
+.button-class-sort {
+    margin:10px;
+    height:fit-content;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom right, #3e9190, #6af1e8);
+    border: 0;
+    border-radius: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.button-class-sort:hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 231, 239), .125rem .125rem 1rem rgba(90, 255, 233);
+}

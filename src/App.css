@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Roboto&display=swap');
+@media screen and (max-width: 550px) {
+    header div.logo {
+        margin-left: 0.5rem;
+    }
+    header div.logo img {
+        width: 35px;
+        height: 35px;
+    }
+    }
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    background-color: #538181;
+    
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.button-class {
+    background: linear-gradient(to bottom right, #3e9190, #6af1e8);
+    border: 0;
+    border-radius: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+
+
+.button-class:hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 231, 239), .125rem .125rem 1rem rgba(90, 255, 233);
+}
+
+header{
+    padding-top: 10px;
+    padding-left: 30px;
+    height:80px;
+    background-color: #255559;
+    border-bottom: 1px solid #163a3d5b;
+
+}
+
+h1{
+    position: relative;
+    bottom:35px;
+    left: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    margin-left: 50px;
+    color: white;
+    text-shadow: 1px 1px 1px #1d3030;
+    width: 500px;
+
+}
+
+.h2-board-menu{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 15px;
+    background-color: #4a8f8e5b;
+    color: white;
+    font-size: 40px;
+    text-shadow: 1px 1px 1px #163a3d; 
+    margin: 10px; 
+
+}
+.content-container{
+    /* background-color: yellow; */
+    /* border: 2px dotted red; */
+    height: 100%;
+    width: 100%;
+}
+
+.main-container{
+    /* background-color: orange; */
+    /* border: 2px dotted red; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.board-container{
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    margin-bottom:0;
+    display: flex;
+    width:100%;
+    margin-top: 0px;
+    text-align: center;
+    color: white;
+    min-width:fit-content;
+
+}
+
+
+.board-list-container{
+    background-color: #2f686c;
+    border-radius: 15px;
+    margin:10px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.boards{
+    padding: 5px;
+    list-style: none;
+    box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.47) inset;
+    color: #337270;
+    background-color:white;
+    height:200px;
+    text-align: center;
+    overflow:auto;
+    margin:0px 50px 50px 50px; 
+    border-radius: 15px;
+    border: 1px solid rgba(69, 112, 102, 0.495);
+    
+
+}
+
+.select-board-container{
+    background-color: #2f686c;
+    border-radius: 15px;
+    margin:10px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #163a3d; 
+}
+
+.create-board-container{
+    border-radius: 15px;
+    background-color: #2f686c;
+    margin:10px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-shadow: 1px 1px 1px #163a3d; 
+}
+
+.card-container{
+    width:100%;
+    padding: 10px;
+    display: flex;
+    margin:50px;
+    
+}
+
+.cards-list{
+    margin-right: 2px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: auto;
+    align-content: start;
+    border: 10px solid #ddd;
+    border-radius: 15px;
+    position: relative;
+    max-width:800px;
+    min-width: 500px;
+    height: 100%;
+    min-height: 500px;
+    background-image: url("./images/bg.jpg");
+    background-repeat: repeat;
+    overflow:hidden;
+    box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+}
+
+.new-board-form{
+    text-align: center;
+}
+
+
+.board-list-item:hover{
+        background-color: rgba(72, 184, 189, 0.5);
+        color: white;
+        cursor:pointer;
+}
+
+.logo{
+    float: left;
+    width: 70px;
+    height: 70px;
+    bottom:10px;
+}
